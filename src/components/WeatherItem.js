@@ -3,14 +3,26 @@ import { render } from "react-dom";
 
 export default class WeatherItem extends Component {
   render() {
-    return <div>Heello</div>;
+    return <div className="cards-container">
+      <WeatherItemDet/>
+      <WeatherItemDet/>
+      <WeatherItemDet/>
+      <WeatherItemDet/>
+      <WeatherItemDet/>
+      <WeatherItemDet/>
+      <WeatherItemDet/>
+
+      </div>;
   }
 }
-export class SayHello extends Component {
+export class WeatherItemDet extends Component {
   render() {
     return (
-      <div style={{ color: this.props.color, backgroundColor: "yellow" }}>
-        Hello {this.props.name}
+      <div style={{ color: this.props.color }} className="subcard">
+        {/* Hello {this.props.name} */}
+        <p>12:00</p>
+        <img src="http://placekitten.com/100/120" alt="ff" />
+        <p>12&deg;</p>
       </div>
     );
   }

@@ -9,8 +9,8 @@ class Search extends React.Component {
 
   render() {
     return (
-      <div>
-        {this.state.input}
+      <div className="div-search">
+        {/* {this.state.input} */}
         <input
           type="text"
           id="input-name"
@@ -18,12 +18,12 @@ class Search extends React.Component {
             this.setState({ input: event.target.value });
           }}
         />
-        <button
+        <button className="btn-search"
           onClick={event => {
             this.props.handleInput(this.state.input);
           }}
         >
-          Say Hello
+          FIND WEATHER
         </button>
       </div>
     );
