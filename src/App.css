@@ -4,6 +4,7 @@
   transition: background-color 1s ease-in;
   font-family: "Raleway", sans-serif;
   align-content: center;
+  background-color: #759eda;
 }
 
 .app__header,
@@ -24,14 +25,14 @@
 .div-search {
   padding-bottom: 2%;
   padding-top: 2%;
-  background-color: #759eda;
+  background-color: darkcyan;
   width: 100%;
 }
 .btn-search {
   margin: 0.5rem;
   padding: 0.3rem;
   font-weight: bold;
-  background-color: #759eda;
+  background-color: royalblue;
 }
 #input-name {
   margin: 0.5rem;
@@ -39,7 +40,7 @@
   border-style: none;
   color: white;
   border-bottom: 0.05rem solid blue;
-  background-color: #759eda;
+  background-color: darkcyan;
 }
 #input-name:focus {
   outline: none;
@@ -64,12 +65,12 @@ div {
 }
 
 .cards-container {
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   /* background-color: tomato; */
-  background-color: #759eda;
+  /* background-color: #759eda; */
 
   margin: 2rem auto auto auto;
   justify-content: space-evenly;

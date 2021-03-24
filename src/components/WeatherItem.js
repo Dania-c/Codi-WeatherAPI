@@ -21,7 +21,7 @@ export class WeatherItemDet extends Component {
       <div style={{ color: this.props.color }} className="subcard">
         {/* Hello {this.props.name} */}
         <p>12:00</p>
-        <img src="http://placekitten.com/100/120" alt="ff" />
+        <img src="http://placekitten.com/80/100" alt="ff" />
         <p>12&deg;</p>
       </div>
     );
