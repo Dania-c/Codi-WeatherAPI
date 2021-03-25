@@ -1,11 +1,12 @@
 * {
-  font-family: Raleway;
+  font-family: "Raleway", sans-serif;
+  color: #1d2565;
 }
 .app {
   height: 100vh;
   width: 100vw;
   transition: background-color 1s ease-in;
-  font-family: "Raleway", sans-serif;
+  /* font-family: "Raleway", sans-serif; */
   align-content: center;
   background-color: #759eda;
 }
@@ -17,6 +18,7 @@
   flex-direction: column;
   align-items: center;
   background-color: #759eda;
+  width: 100vw;
   /* padding: 20px; */
   /* font-family: "Raleway", sans-serif; */
   -webkit-font-smoothing: antialiased;
@@ -30,6 +32,7 @@
   padding-top: 2%;
   background-color: #30418b;
   width: 100%;
+  height: 5%;
 }
 .btn-search {
   margin: 0.5rem;
@@ -82,6 +85,7 @@
 
 #app_main {
   margin: auto;
+  height: 60%;
 }
 
 div {
@@ -94,6 +98,7 @@ div {
   display: flex;
   flex-direction: row;
   align-items: center;
+  height: 30%;
   /* background-color: tomato; */
   /* background-color: #759eda; */
 
@@ -106,4 +111,13 @@ div {
   flex-direction: column;
 
   align-items: center;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+}
+.imgNow {
+  height: 200px;
+  width: 200px;
 }

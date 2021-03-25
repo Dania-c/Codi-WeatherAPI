@@ -1,12 +1,17 @@
 import React, { Component } from "react";
 import Search from "./components/Search";
 
-import WeatherItem, { WeatherItemDet } from "./components/WeatherItem";
+import WeatherItem from "./components/WeatherItem";
 // import fakeWeatherData from "./fakeWeatherData.json";
 
 import "./App.css";
 import WeatherNow from "./components/WeatherNow";
 import FakeWeather from "./data/FakeWeather.json";
+
+
+
+
+
 
 
 class App extends Component {
