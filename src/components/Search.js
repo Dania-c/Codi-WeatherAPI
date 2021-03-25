@@ -14,6 +14,7 @@ class Search extends React.Component {
         <input
           type="text"
           id="input-name"
+          placeholder="type in a city name"
           onChange={event => {
             this.setState({ input: event.target.value });
           }}

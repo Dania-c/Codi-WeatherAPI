@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
+import FakeWeather from '../data/FakeWeather.json' ;
 
 export default class WeatherItem extends Component {
+  
   render() {
     return <div className="cards-container">
       <WeatherItemDet/>
@@ -11,6 +13,7 @@ export default class WeatherItem extends Component {
       <WeatherItemDet/>
       <WeatherItemDet/>
       <WeatherItemDet/>
+      
 
       </div>;
   }
