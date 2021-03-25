@@ -16,8 +16,8 @@ export default class WeatherItem extends Component {
 }
 export class WeatherItemDet extends Component {
   render() {
-    function convertToC (f) {
-      return (5/9) * (f-32)
+    function convertToC (k) {
+      return (k - 273.15).toFixed(1)
     }
     var i = 0;
     var arr =[];
@@ -34,7 +34,7 @@ export class WeatherItemDet extends Component {
       <div className="subcard">
         <h4>{FakeWeather.list[j].dt_txt.substring(10,16)}</h4>
         {p}
-        <h4>{FakeWeather.list[j].main.temp}&deg;C</h4>
+        <h4>{convertToC(FakeWeather.list[j].main.temp)}&deg;C</h4>
       </div>)
 }
     return (
