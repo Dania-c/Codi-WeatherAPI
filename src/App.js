@@ -26,6 +26,7 @@ class App extends Component {
      description:"",
      pressure:"",
      humidity:"",
+     error:"",
       };
   }
   
@@ -36,14 +37,25 @@ getWeather =async (e) =>{
   const api_call=await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=8&units=metric&appid=${API_KEY}`);
   const data = await api_call.json();
   this.setState({ wdata: data });
-  console.log(this.state.wdata);
+  if (city && data.cod !=="404" && data.cod !=="400" ) {
   this.setState ( {
     description:data.list[0].weather[0].description,
    tempMin:data.list[0].main.temp_min,
    tempMax:data.list[0].main.temp_max,
    pressure:data.list[0].main.pressure,
    humidity:data.list[0].main.humidity,
-    });
+   error:""
+    });}
+    else{
+      this.setState ( {
+        description:"",
+       tempMin:"",
+       tempMax:"",
+       pressure:"",
+       humidity:"",
+       error:"Please enter a valid city"
+        })
+    }
     }
 
   handleInputChange = value => {
@@ -54,8 +66,10 @@ getWeather =async (e) =>{
     return (
       <div className="app">
         <Search handleInput={this.handleInputChange} className="app__header" getWeather={this.getWeather} />
-        {this.state.name && <WeatherNow tempMax={this.state.tempMax}  tempMin={this.state.tempMin} description={this.state.description} pressure={this.state.pressure} humidity={this.state.humidity}  />}
-        {this.state.name && <WeatherItem weatherdata={this.state.wdata}/> }
+        {this.state.error && <p>{this.state.error}</p>  }
+        {!this.state.error && <WeatherNow tempMax={this.state.tempMax}  tempMin={this.state.tempMin} description={this.state.description} pressure={this.state.pressure} humidity={this.state.humidity}  />}
+        {!this.state.error && <WeatherItem weatherdata={this.state.wdata}/> }
+        
         {/* <DetailWeath city={this.state.name}/> */}
       </div>
     );
