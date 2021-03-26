@@ -1,16 +1,17 @@
-import React, { Component } from "react";
+import React, { Component,useState } from "react";
 import Search from "./components/Search";
 
 import WeatherItem from "./components/WeatherItem";
-// import fakeWeatherData from "./fakeWeatherData.json";
 
 import "./App.css";
 import WeatherNow from "./components/WeatherNow";
-import FakeWeather from "./data/FakeWeather.json";
+import DetailWeath from "./components/DetailWeath";
 
 
 
+const API_KEY="047c54c9be210c32c9b4c6c654079e73";
 
+// const k="http://api.openweathermap.org/data/2.5/forecast?q=${CITY_NAME}&cnt=8&units=metric&appid=${API_KEY}";
 
 
 
@@ -18,9 +19,32 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "Dania c"
-    };
+      wdata:"",
+      name: "",
+      tempMax:"",
+     tempMin:"",
+     description:"",
+     pressure:"",
+     humidity:"",
+      };
   }
+  
+getWeather =async (e) =>{
+  e.preventDefault();
+  const city= this.state.name;
+  // const api_call=await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${CITY_NAME}&cnt=8&units=metric&appid=${API_KEY}`);
+  const api_call=await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=8&units=metric&appid=${API_KEY}`);
+  const data = await api_call.json();
+  this.setState({ wdata: data });
+  console.log(this.state.wdata);
+  this.setState ( {
+    description:data.list[0].weather[0].description,
+   tempMin:data.list[0].main.temp_min,
+   tempMax:data.list[0].main.temp_max,
+   pressure:data.list[0].main.pressure,
+   humidity:data.list[0].main.humidity,
+    });
+    }
 
   handleInputChange = value => {
     this.setState({ name: value });
@@ -29,11 +53,10 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <Search handleInput={this.handleInputChange} className="app__header" />
-        <WeatherNow/>
-        <WeatherItem />
-        {/* <SayHello color="black" name={this.state.name} /> */}
-        {/* <TryItem/> */}
+        <Search handleInput={this.handleInputChange} className="app__header" getWeather={this.getWeather} />
+        {this.state.name && <WeatherNow tempMax={this.state.tempMax}  tempMin={this.state.tempMin} description={this.state.description} pressure={this.state.pressure} humidity={this.state.humidity}  />}
+        {this.state.name && <WeatherItem weatherdata={this.state.wdata}/> }
+        {/* <DetailWeath city={this.state.name}/> */}
       </div>
     );
   }

@@ -3,19 +3,9 @@ import { render } from "react-dom";
 import FakeWeather from '../data/FakeWeather.json' ;
 import {Fog, Storm, Cloudy, Rain,Clear} from './ImagesComponents';
 
-export default class WeatherItem extends Component {
+ const WeatherItem = (props)=> {
   
-  render() {
-    return <div className="cards-container">
-      <WeatherItemDet/>
-    
-      
-
-      </div>;
-  }
-}
-export class WeatherItemDet extends Component {
-  render() {
+  
     function convertToC (k) {
       return (k - 273.15).toFixed(1)
     }
@@ -38,15 +28,12 @@ export class WeatherItemDet extends Component {
       </div>)
 }
     return (
-      <div style={{ color: this.props.color }} className="cards-container">
-        {/* Hello {this.props.name}
-        <p>12:00</p>
-        <img src="http://placekitten.com/80/100" alt="ff" />
-        <Fog />
-        <Storm />
-        <p>12&deg;</p> */}
+      // <div style={{ color: this.props.color }} className="cards-container">
+       <div  className="cards-container">
+       
         {arr}
       </div>
     );
   }
-}
+ 
+  export default  WeatherItem;
